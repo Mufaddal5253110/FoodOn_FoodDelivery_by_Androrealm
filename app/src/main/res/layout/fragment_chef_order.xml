@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/ordertobe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/ic_restaurant_menu_black_24dp"
+        android:text="Orders to be Prepared"
+        android:textColor="@color/Blacklogo"
+        android:textSize="21dp" />
+
+    <TableRow
+        android:id="@+id/hr"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/ordertobe"
+        android:background="@color/lightgray" />
+
+    <TextView
+        android:id="@+id/prepareorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hr"
+        android:layout_marginLeft="12dp"
+        android:drawableLeft="@drawable/ic_food_tray"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:drawablePadding="8dp"
+        android:text="Prepared Orders"
+        android:textColor="@color/Blacklogo"
+        android:textSize="21dp" />
+
+    <TableRow
+        android:id="@+id/hr1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/prepareorder"
+        android:background="@color/lightgray" />
+
+
+</RelativeLayout>

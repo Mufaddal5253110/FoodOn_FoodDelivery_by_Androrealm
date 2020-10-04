@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="#fff"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/dish_name"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textColor="@color/Blacklogo"
+        android:layout_marginLeft="12dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="9dp"
+        android:text="Name of the Dish"
+        android:textSize="25dp"
+        android:textAllCaps="false" />
+
+        <TableRow
+            android:id="@+id/hr"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="1dp"
+            android:background="@color/lightgray" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

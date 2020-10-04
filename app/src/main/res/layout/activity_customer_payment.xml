@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="my.food_on.app.CustomerFoodPanel.CustomerPayment">
+
+    <TextView
+        android:id="@+id/pyy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="Online Payment"
+        android:textColor="@color/Black"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/py"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pyy"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:text="After your first payment, we will save your details for future use."
+        android:textColor="@color/gray"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:id="@+id/li1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/py"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/online"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:drawableLeft="@drawable/ic_payment_black_24dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="8dp"
+            android:text="Credit, Debit &amp; ATM Cards"
+            android:textColor="@color/Blacklogo"
+            android:textSize="19dp" />
+
+        <TableRow
+            android:id="@+id/hr"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/pendingorder"
+            android:background="@color/lightgray" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/py1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/li1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:text="Cash payment"
+        android:textColor="@color/Black"
+        android:textSize="25dp" />
+
+    <LinearLayout
+        android:id="@+id/li2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/py1"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/cash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hr"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:drawableLeft="@drawable/ic_rupee"
+            android:drawablePadding="8dp"
+            android:text="Cash on Delivery"
+            android:textColor="@color/Blacklogo"
+            android:textSize="19dp" />
+
+        <TableRow
+            android:id="@+id/hr1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/payableorder"
+            android:background="@color/lightgray" />
+    </LinearLayout>
+
+</RelativeLayout>
