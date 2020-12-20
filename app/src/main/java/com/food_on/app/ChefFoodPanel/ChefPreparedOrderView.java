@@ -62,7 +62,7 @@ public class ChefPreparedOrderView extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private APIService apiService;
     Spinner Shipper;
-    String deliveryId = "FiskLkwpt9ZYgm19yZB8ldmrqD22";
+    String deliveryId = "oCpc4SwLVFbKO0fPdtp4R6bmDmI3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

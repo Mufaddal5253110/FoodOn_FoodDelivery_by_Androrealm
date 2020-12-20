@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="my.food_on.app.DeliveryFoodPanel.DeliveryShipOrderView">
+    tools:context="com.food_on.app.DeliveryFoodPanel.DeliveryShipOrderView">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/delishipvieworder"
