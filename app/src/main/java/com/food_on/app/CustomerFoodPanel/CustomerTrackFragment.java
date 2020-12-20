@@ -1,6 +1,7 @@
 package com.food_on.app.CustomerFoodPanel;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,9 +91,13 @@ public class CustomerTrackFragment extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             CustomerFinalOrders1 customerFinalOrders1 = dataSnapshot.getValue(CustomerFinalOrders1.class);
-                            grandtotal.setText("₹ " + customerFinalOrders1.getGrandTotalPrice());
-                            Address.setText(customerFinalOrders1.getAddress());
-                            Status.setText(customerFinalOrders1.getStatus());
+                            try{
+                                grandtotal.setText("₹ " + customerFinalOrders1.getGrandTotalPrice());
+                                Address.setText(customerFinalOrders1.getAddress());
+                                Status.setText(customerFinalOrders1.getStatus());
+                            }catch (Exception e){
+                                Log.d("CustomerTrackFragment", "onDataChange: "+e);
+                            }
 
                         }
 
