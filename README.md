@@ -15,6 +15,7 @@ If you will not connect with your firebase and try to run this app with mine fir
 ### Corection in Delivery Panel
 After Registering as delivery person , copy UID of that delivery person from firebase and in : "FoodOn_FoodDelivery_by_Androrealm/app/src/main/java/com/food_on/app/ChefFoodPanel/ChefPreparedOrderView.java" file
 at line 65=> String deliveryId = "oCpc4SwLVFbKO0fPdtp4R6bmDmI3"; paste here.
+Similarly, Do this in DeliveryPendingOrderFragment.java file
 
 
 ## Connect with me:
