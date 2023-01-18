@@ -21,6 +21,7 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
@@ -113,9 +114,8 @@ public class Chefsendotp extends AppCompatActivity {
     }
 
 
-    private void verifyCode(String code)
-    {
-        PhoneAuthCredential credential= PhoneAuthProvider.getCredential(verificationId,code);
+    private void verifyCode(String code) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
         signInwithCredential(credential);
     }
 
@@ -125,40 +125,42 @@ public class Chefsendotp extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful())
-                        {
-                            Intent intent=new Intent(Chefsendotp.this,ChefFoodPanel_BottomNavigation.class);
+                        if (task.isSuccessful()) {
+                            Intent intent = new Intent(Chefsendotp.this, ChefFoodPanel_BottomNavigation.class);
                             startActivity(intent);
                             finish();
-                        }
-                        else
-                        {
-                            ReusableCodeForAll.ShowAlert(Chefsendotp.this,"Error",task.getException().getMessage());
+                        } else {
+                            ReusableCodeForAll.ShowAlert(Chefsendotp.this, "Error", task.getException().getMessage());
                         }
                     }
                 });
     }
 
 
-    private  void sendverificationcode(String number)
-    {
+    private void sendverificationcode(String number) {
 
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                number,
-                60,
-                TimeUnit.SECONDS,
-                TaskExecutors.MAIN_THREAD,
-                mCallBack
-        );
+//        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+//                number,
+//                60,
+//                TimeUnit.SECONDS,
+//                TaskExecutors.MAIN_THREAD,
+//                mCallBack
+//        );
+        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(FirebaseAuth.getInstance())
+                .setPhoneNumber(number)
+                .setTimeout(60L, TimeUnit.SECONDS)
+                .setActivity(this)
+                .setCallbacks(mCallBack).build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks
-            mCallBack=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            mCallBack = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
 
-            verificationId=s;
+            verificationId = s;
 
         }
 
@@ -166,9 +168,8 @@ public class Chefsendotp extends AppCompatActivity {
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
 
 
-            String code=phoneAuthCredential.getSmsCode();
-            if (code !=null)
-            {
+            String code = phoneAuthCredential.getSmsCode();
+            if (code != null) {
                 entercode.setText(code);
                 verifyCode(code);
 

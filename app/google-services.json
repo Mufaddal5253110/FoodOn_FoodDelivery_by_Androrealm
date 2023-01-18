@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "653970606470-pnkhrscfcagv9bvgm91spogtc37ad8oc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.food_on.app",
+            "certificate_hash": "acf5da1fbd444b2ee68538e1ca593f8c36659fc7"
+          }
+        },
+        {
           "client_id": "653970606470-ic15kn8imut1u1r27kbm9nqsuejuqkgu.apps.googleusercontent.com",
           "client_type": 3
         }

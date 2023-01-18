@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.food_on.app">
 
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
     <application xmlns:tools="http://schemas.android.com/tools"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -139,7 +141,8 @@
             android:theme="@style/AppThemeNoActionbar" />
         <activity
             android:name="com.food_on.app.MainActivity"
-            android:theme="@style/AppThemeNoActionbar">
+            android:theme="@style/AppThemeNoActionbar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -167,6 +170,11 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value=""/>
+
+
     </application>
 
 </manifest>

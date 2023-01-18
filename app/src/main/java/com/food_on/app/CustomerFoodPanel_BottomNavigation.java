@@ -24,11 +24,14 @@ import com.food_on.app.CustomerFoodPanel.CustomerOrderFragment;
 import com.food_on.app.CustomerFoodPanel.CustomerProfileFragment;
 import com.food_on.app.CustomerFoodPanel.CustomerTrackFragment;
 import com.food_on.app.SendNotification.Token;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
+//import com.google.firebase.iid.FirebaseInstanceId;
 
 public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -60,12 +63,22 @@ public class CustomerFoodPanel_BottomNavigation extends AppCompatActivity implem
     }
 
     private void UpdateToken() {
+//        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+            @Override
+            public void onComplete(@NonNull Task<String> task) {
+                if(task.isComplete()){
+                    String token = task.getResult();
+                    FirebaseDatabase.getInstance().getReference("Tokens").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(token);
 
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        String refreshToken = FirebaseInstanceId.getInstance().getToken();
-        Token token = new Token(refreshToken);
-        FirebaseDatabase.getInstance().getReference("Tokens").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(token);
 
+
+                }
+            }
+        });
+//        String refreshToken = FirebaseInstanceId.getInstance().getToken();
+//        Token token = new Token(refreshToken);
+//        FirebaseDatabase.getInstance().getReference("Tokens").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(token);
     }
 
     private boolean loadFragment(Fragment fragment) {
